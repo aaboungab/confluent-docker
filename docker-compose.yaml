@@ -38,15 +38,6 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 2
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_OPTS: -javaagent:/usr/share/java/jmx_prometheus_javaagent.jar=9999:/opt/prometheus/kafka_broker.yml
-    #command: ["java", "-javaagent:/usr/share/java/jmx_prometheus_javaagent.jar=9999:/opt/prometheus/kafka_broker.yml", "-jar", "/usr/share/java/jmx_prometheus_javaagent.jar"]
-    #command: ["/bin/sh","-c", "echo $KAFKA_OPTS;unset $KAFKA_OPTS"]
-      #KAFKA_JMX_PORT: 9999
-      #KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
-        #KAFKA_DEFAULT_REPLICATION_FACTOR: 1
-        #KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
-        #CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:29092
-        #KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
-        #KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zoo1
     networks:
@@ -76,16 +67,6 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 2
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_OPTS: -javaagent:/usr/share/java/jmx_prometheus_javaagent.jar=9998:/opt/prometheus/kafka_broker.yml
-    #command: ["sh", "-c", "bin/kafka-server-start /etc/kafka/server.properties ; /path/to/unset-javaagent.sh"]
-    #command: ["sh", "-c", "java -javaagent:/usr/share/java/jmx_prometheus_javaagent.jar=9998:/opt/prometheus/kafka_broker.yml -cp /opt/kafka/libs/*:/opt/kafka/config org.apache.kafka.server.KafkaServer /opt/kafka/config/server.properties"]
-    #command: ["/bin/sh","-c", "echo $KAFKA_OPTS;unset $KAFKA_OPTS"]
-      #KAFKA_JMX_PORT: 9998
-      #KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
-        #KAFKA_DEFAULT_REPLICATION_FACTOR: 1
-        #KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
-        #CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:29092
-        #KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
-        #KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zoo1
     networks:
